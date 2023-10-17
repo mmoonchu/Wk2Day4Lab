@@ -5,6 +5,8 @@
 // - If students get 55 or above: console log Not to good
 // // - Any grade lower than 55 is Bad Grade But You'll Get Em Next Time
 
+let grade = 75
+
 function letterGrade(grade) {
   if (grade >= 80) {
     console.log("You did a good job");
@@ -18,7 +20,8 @@ function letterGrade(grade) {
     console.log("Bad grade, but you'll get 'em next time");
   }
 }
-letterGrade(90);
+
+
 
 // 2.   Write a function that prints out multiples of 10 up to a given input (argument)
 
@@ -89,16 +92,16 @@ const changeOutputs = [];
 
 function getNumBills(denomination, amtRemaining) {
   let bills = 0;
-  while (amtRemaining - denomination >= denomination) {
+  while (amtRemaining - denomination >= 0) {
     bills++;
     amtRemaining -= denomination;
   }
   if (bills > 1) {
     changeOutputs.push(`${bills} $${denomination} bills`);
-  } else if ((bills = 1)) {
+  } else if ((bills === 1)) {
     changeOutputs.push(`${bills} $${denomination} bill`);
   }
-  change = amtRemaining;
+  return amtRemaining;
 }
 
 // for each bill type: calc how many of them, reduce remainingCost, put into string to be output
@@ -106,15 +109,15 @@ function getNumBills(denomination, amtRemaining) {
 
 function calcChange2(amtPaid, cost) {
   let change = amtPaid - cost;
-  getNumBills(100, change);
-  getNumBills(50, change);
-  getNumBills(20, change);
-  getNumBills(10, change);
-  getNumBills(5, change);
-  getNumBills(1, change);
+  change = getNumBills(100, change);
+  change = getNumBills(50, change);
+  change = getNumBills(20, change);
+  change = getNumBills(10, change);
+  change = getNumBills(5, change);
+  change = getNumBills(1, change);
   console.log(`Your change will be ${changeOutputs.join(", ")}`);
 }
-calcChange2(1000, 36);
+calcChange2(1000, 351);
 
 // 5.   Write a program that uses console.log to print all the numbers from 1 to 100 with two exceptions. For numbers divisible by 3, print "Fizz" instead of the number, and for numbers divisible by 5 (and not 3), print "Buzz" instead. When you have that working, modify your program to print "FizzBuzz", for numbers that are divisible by both 3 and 5 (and still print "Fizz" or "Buzz" for numbers divisible by only one of those).
 function fizzbuzz() {
